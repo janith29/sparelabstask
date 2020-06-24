@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>     
 <div class="row">
   <div class="col-sm-9"></div>
-  <div class="col-sm-3" style="margin-top:60px">
+  <div class="col-sm-3 margintop">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adduser" >Add User</button>
   </div>
 </div>

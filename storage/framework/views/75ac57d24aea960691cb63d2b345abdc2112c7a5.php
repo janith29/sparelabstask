@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>     
 
-<div class="row" style="margin-top:60px">
+<div class="row margintop">
   <div class="col-sm-3"></div>
   <div class="col-sm-6">
     <div class="card">

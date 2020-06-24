@@ -21,14 +21,41 @@
 <script src="/bootstrap/bootstrap.bundle.min.js"></script>
 <style>
 html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+.bgimg {
+  background-image: url('/img/Grocery.jpg');
+  min-height: 100%;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  background-position: center;
+  background-size: cover;
+}
+.margintop{
+    margin-top: 60px;
+  }
+  @media only screen and (max-width: 813px) {
+  .margintop{
+    margin-top: 110px;
+  }
+}
+@media only screen and (max-width: 413px) {
+  .margintop{
+    margin-top: 170px;
+  }
+}
+@media only screen and (max-width: 270px) {
+  .margintop{
+    margin-top: 200px;
+  }
+}
+  
 </style>
 <body class="w3-theme-l5">
 
 <!-- Navbar -->
-<div class="w3-top">
+<div class="w3-top ">
  <div class="w3-bar w3-theme-d2 w3-left-align w3-large"> 
   <a  href="{{ route('/') }}" class="w3-bar-item w3-button w3-padding-large "><i class="fa fa-home w3-margin-right"></i>Home</a>
-  <a  href="{{ route('admin.admin') }}" class="w3-bar-item w3-button w3-padding-large @if (Request::is('admin')) w3-theme-d4 @endif"><i class="fa fa-home w3-margin-right"></i>Dashboard</a>
+  <a  href="{{ route('admin.admin') }}" class="w3-bar-item w3-button w3-padding-large @if (Request::is('admin')) w3-theme-d4 @endif"><i class="fa fa-dashboard w3-margin-right"></i>Dashboard</a>
   <a  href="{{ route('admin.user') }}" class="w3-bar-item w3-button w3-padding-large  w3-hover-white @if (Request::is('admin/user/*')||Request::is('admin/user') ) w3-theme-d4 @endif"><i class="fa fa fa-user w3-margin-right"></i>User</a>
   <a  href="{{ route('admin.products') }}" class="w3-bar-item w3-button w3-padding-large  w3-hover-white @if (Request::is('admin/product/*') ||Request::is('admin/product') ) w3-theme-d4 @endif"><i class="fa fa fa-product-hunt w3-margin-right"></i>Product</a>
   <div class="w3-dropdown-hover ">
