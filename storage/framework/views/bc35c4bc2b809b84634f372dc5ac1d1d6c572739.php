@@ -29,6 +29,26 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
   background-position: center;
   background-size: cover;
 }
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -20px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -20px;
+  content: "✖";
+}
 .margintop{
     margin-top: 60px;
   }

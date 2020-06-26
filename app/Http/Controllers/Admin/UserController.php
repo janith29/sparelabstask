@@ -53,7 +53,7 @@ class UserController extends Controller
         $user->save();
 
 
-        return redirect('/admin/user');
+        return redirect('/admin/user')->with('message', 'New user add successfully!');;
     }
     public function show( User $user)
     {
@@ -67,13 +67,13 @@ class UserController extends Controller
         $user->name = $request->get('user-name');
         $user->email = $request->get('user-email');
         $user->save();
-        return back();
+        return back()->with('message', 'User edit successfully!');
     }
     public function delete( Request $request,User $user)
     {
         $user=User::findOrFail( $request->userid);
         $user->delete();
-        return redirect('/admin/user');
+        return redirect('/admin/user')->with('deletemessage','user delete successfully!');
     }
 
 

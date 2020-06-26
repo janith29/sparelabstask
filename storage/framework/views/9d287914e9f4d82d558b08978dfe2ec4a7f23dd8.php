@@ -8,6 +8,13 @@
 <div class="row" >
   <div class="col-sm-3"></div>
   <div class="col-sm-6">
+
+    <?php if(Session::has('message')): ?>
+    <div class="alert alert-success"><?php echo e(Session::get('message')); ?></div>
+    <?php endif; ?>
+    <?php if(Session::has('deletemessage')): ?>
+    <div class="alert alert-danger"><?php echo e(Session::get('deletemessage')); ?></div>
+    <?php endif; ?>
     <table id="example" class="table table-striped table-bordered" style="width:100%">
       <thead>
           <tr>
@@ -148,6 +155,12 @@
 
 
           <h3 class="text-white"> Do you want to delete? </h3>
+          <h3 >
+           <span class="text-white">Product ID:</span>  <strong><span id="productDeleteid"></span></strong>
+          </h3>
+          <h3 >
+            <span class="text-white">Product name:</span> <strong><span id="productDeletename"></span></strong>
+          </h3>
           <input type="hidden" name="productid"  id="productid" >
 
       </div>
@@ -176,7 +189,12 @@
 })
   $('#deleteproduct').on('shown.bs.modal', function (event) {
 
+
     var button=$(event.relatedTarget)
+    var productid=button.data('productid')
+    var productname=button.data('productname')
+    document.getElementById("productDeleteid").innerHTML =productid;
+    document.getElementById("productDeletename").innerHTML =productname;
 
     var productid=button.data('productid')
     var modal=$(this)

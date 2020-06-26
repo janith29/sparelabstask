@@ -3,6 +3,10 @@
 <div class="row margintop">
   <div class="col-sm-3"></div>
   <div class="col-sm-6">
+
+    <?php if(Session::has('message')): ?>
+    <div class="alert alert-success"><?php echo e(Session::get('message')); ?></div>
+    <?php endif; ?>
     <div class="card">
         <div class="card-header">
             <h5 class="card-title">User name</h5>
@@ -84,6 +88,15 @@
 
   
             <h3 class="text-white"> Do you want to delete? </h3>
+            <h3 >
+              <span class="text-white">Id:</span>  <strong><span id="userDeleteid"></span></strong>
+             </h3>
+             <h3 >
+               <span class="text-white">User name:</span> <strong><span id="userDeleteusername"></span></strong>
+             </h3>
+             <h3 >
+               <span class="text-white">Email:</span> <strong><span id="userDeleteuseremail"></span></strong>
+             </h3>
             <input type="hidden" name="userid"  id="userid" >
   
         </div>
@@ -109,16 +122,19 @@
       modal.find('.modal-body #userid').val(userid)
   
   })
-    $('#deleteuser').on('shown.bs.modal', function (event) {
-  
-      var button=$(event.relatedTarget)
-  
-      var span = document.getElementById("username"); 
-      var userid=button.data('userid')
-      var modal=$(this)
-      modal.find('.modal-body #userid').val(userid)
-  
-  })
+  $('#deleteuser').on('shown.bs.modal', function (event) {
+
+var button=$(event.relatedTarget)
+var usernamee=button.data('username')
+var userid=button.data('userid')
+var useremail=button.data('useremail')
+document.getElementById("userDeleteid").innerHTML =userid;
+document.getElementById("userDeleteusername").innerHTML =usernamee;
+document.getElementById("userDeleteuseremail").innerHTML =useremail;
+var modal=$(this)
+modal.find('.modal-body #userid').val(userid)
+
+})
   </script>
   <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/janith/okto zone/PHP developer/sparelabs/resources/views/admin/user/show.blade.php ENDPATH**/ ?>

@@ -3,6 +3,9 @@
 <div class="row margintop" >
   <div class="col-sm-3"></div>
   <div class="col-sm-6">
+    <?php if(Session::has('message')): ?>
+      <div class="alert alert-success"><?php echo e(Session::get('message')); ?></div>
+    <?php endif; ?>
     <div class="card">
         <div class="card-header">
             <h5 class="card-title">Product name</h5>
@@ -87,7 +90,12 @@
             <?php echo e(csrf_field()); ?>
 
   
-            <h3 class="text-white"> Do you want to delete? </h3>
+            <h3 class="text-white"> Do you want to delete? </h3> <h3 >
+              <span class="text-white">Product ID:</span>  <strong><span id="productDeleteid"></span></strong>
+             </h3>
+             <h3 >
+               <span class="text-white">Product name:</span> <strong><span id="productDeletename"></span></strong>
+             </h3>
             <input type="hidden" name="productid"  id="productid" >
   
         </div>
@@ -114,15 +122,21 @@
       modal.find('.modal-body #productdiscription').val(productdiscription)
   
   })
-    $('#deleteproduct').on('shown.bs.modal', function (event) {
-  
-      var button=$(event.relatedTarget)
-  
-      var productid=button.data('productid')
-      var modal=$(this)
-      modal.find('.modal-body #productid').val(productid)
-  
-  })
+    
+  $('#deleteproduct').on('shown.bs.modal', function (event) {
+
+
+var button=$(event.relatedTarget)
+var productid=button.data('productid')
+var productname=button.data('productname')
+document.getElementById("productDeleteid").innerHTML =productid;
+document.getElementById("productDeletename").innerHTML =productname;
+
+var productid=button.data('productid')
+var modal=$(this)
+modal.find('.modal-body #productid').val(productid)
+
+})
   </script>
   <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/janith/okto zone/PHP developer/sparelabs/resources/views/admin/product/show.blade.php ENDPATH**/ ?>

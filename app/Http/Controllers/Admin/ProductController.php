@@ -50,8 +50,7 @@ class ProductController extends Controller
         $product->save();
 
         auth()->user()->notify(new RepliedToTread());
-
-        return redirect('/admin/product');
+        return redirect('/admin/product')->with('message', 'New product add successfully!');
     }
     public function markread()
     {
@@ -69,13 +68,13 @@ class ProductController extends Controller
         $product->discription = $request->get('productdiscription');
         $product->price = $request->get('productprice');
         $product->save();
-        return back();
+        return back()->with('message', 'Product edit successfully!');
     }
     public function delete( Request $request,Product $product)
     {
         $product=Product::findOrFail( $request->productid);
         $product->delete();
-        return redirect('/admin/product');
+        return redirect('/admin/product')->with('deletemessage','Product delete successfully!');
     }
 
 }
