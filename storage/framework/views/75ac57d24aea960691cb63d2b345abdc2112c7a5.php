@@ -4,8 +4,22 @@
   <div class="col-sm-3"></div>
   <div class="col-sm-6">
 
+    <?php if(Session::has('editmessage')): ?>
+    <div class="alert alert-warning">
+      <?php echo e(Session::get('editmessage')); ?> 
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <?php endif; ?>
     <?php if(Session::has('message')): ?>
-    <div class="alert alert-success"><?php echo e(Session::get('message')); ?></div>
+    <div class="alert alert-success">
+      <?php echo e(Session::get('message')); ?>
+
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <?php endif; ?>
     <div class="card">
         <div class="card-header">

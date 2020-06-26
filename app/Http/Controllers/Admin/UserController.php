@@ -67,7 +67,7 @@ class UserController extends Controller
         $user->name = $request->get('user-name');
         $user->email = $request->get('user-email');
         $user->save();
-        return back()->with('message', 'User edit successfully!');
+        return back()->with('editmessage', 'User ID '.$request->userid.' edit successfully!');
     }
     public function delete( Request $request,User $user)
     {

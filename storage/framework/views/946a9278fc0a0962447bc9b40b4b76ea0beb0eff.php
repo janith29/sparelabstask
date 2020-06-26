@@ -8,12 +8,33 @@
 <div class="row" >
   <div class="col-sm-3"></div>
   <div class="col-sm-6">
+    
+    <?php if(Session::has('editmessage')): ?>
+    <div class="alert alert-warning">
+      <?php echo e(Session::get('editmessage')); ?> 
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <?php endif; ?>
 
     <?php if(Session::has('message')): ?>
-    <div class="alert alert-success"><?php echo e(Session::get('message')); ?></div>
+    <div class="alert alert-success">
+      <?php echo e(Session::get('message')); ?>
+
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
     <?php endif; ?>
     <?php if(Session::has('deletemessage')): ?>
-    <div class="alert alert-danger"><?php echo e(Session::get('deletemessage')); ?></div>
+    <div class="alert alert-danger">
+      <?php echo e(Session::get('deletemessage')); ?>
+
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <?php endif; ?>
     <table id="example" class="table table-striped table-bordered" style="width:100%">
       <thead>
@@ -84,7 +105,7 @@
 
           <div class="form-group">
             <label for="user-name" class="col-form-label">User Neme:</label>
-            <input type="text" class="form-control"name="user-name" id="user-name" placeholder="Enter User Name" required  autofocus autocomplete="off" >
+            <input type="text" class="form-control"name="user-name" id="user-name" required  autofocus autocomplete="off" >
           </div>
           <div class="form-group">
             <label for="user-email" class="col-form-label">User Email:</label>

@@ -7,6 +7,15 @@
     @if(Session::has('message'))
       <div class="alert alert-success">{{ Session::get('message') }}</div>
     @endif
+
+    @if(Session::has('editmessage'))
+    <div class="alert alert-warning">
+      {{ Session::get('editmessage') }} 
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    @endif
     <div class="card">
         <div class="card-header">
             <h5 class="card-title">Product name</h5>

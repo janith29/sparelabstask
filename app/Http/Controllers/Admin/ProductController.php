@@ -68,13 +68,13 @@ class ProductController extends Controller
         $product->discription = $request->get('productdiscription');
         $product->price = $request->get('productprice');
         $product->save();
-        return back()->with('message', 'Product edit successfully!');
+        return back()->with('editmessage', 'Product ID '.$request->productid.' edit successfully!');
     }
     public function delete( Request $request,Product $product)
     {
         $product=Product::findOrFail( $request->productid);
         $product->delete();
-        return redirect('/admin/product')->with('deletemessage','Product delete successfully!');
+        return redirect('/admin/product')->with('deletemessage','Product  ID '.$request->productid.' delete successfully!');
     }
 
 }
